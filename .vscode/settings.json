@@ -1,5 +1,3 @@
 {
-    "git.ignoreLimitWarning": true,
-    "emmet.triggerExpansionOnTab": true,
-    "emmet.includeLanguages": { "javascript": "html" }
+    "git.ignoreLimitWarning": true
 }
