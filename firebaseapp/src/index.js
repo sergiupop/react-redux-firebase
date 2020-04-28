@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore, applyMiddleware, compose } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { reactReduxFirebase, getFirebase } from 'react-redux-firebase';
@@ -12,7 +13,7 @@ import firebaseConfig from './config/firebaseConfig';
 
 import './index.css';
 
-const store = createStore(rootReducer, compose(
+const store = createStore(rootReducer, composeWithDevTools(
     applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
     reactReduxFirebase(firebaseConfig),
     reduxFirestore(firebaseConfig)
