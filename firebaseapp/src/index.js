@@ -15,7 +15,11 @@ import './index.css';
 
 const store = createStore(rootReducer, composeWithDevTools(
     applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
-    reactReduxFirebase(firebaseConfig, { attachAuthIsReady: true }),
+    reactReduxFirebase(firebaseConfig, { 
+      attachAuthIsReady: true,
+      useFirestoreForProfile: true,
+      userProfile: 'users'
+    }),
     reduxFirestore(firebaseConfig)
   )
 );
